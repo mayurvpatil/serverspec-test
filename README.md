@@ -13,10 +13,11 @@ You should have following to run these serverspec tests
 | SSH_USER          | User to connect to remote machine               |
 | SSH_KEY           | Private key of user to login to remote machine  |
 | ASK_SSH_PASSWORD  | Set if you want to type password on console     |
-| SSH_PASSWORD      | user password                                   |
+| SSH_PASSWORD      | User password                                   |
 | SSH_PORT          | Custom SSH Port                                 |
 | RESULT_PATH       | Local directory path to store result            |
 
+Update env.sh and execute `sh env.sh`
 
 ## How to Run
 1. Clone this repo
