@@ -9,8 +9,8 @@ host = ENV['TARGET_HOST']
 
 options = Net::SSH::Config.for(host)
 
-properties = YAML.load_file(ENV["HOSTS_FILE"])
-hosts = properties.keys
+#properties = YAML.load_file(ENV["HOSTS_FILE"])
+hosts = ENV["SSH_HOST"]
 
 if ENV["SSH_USER"]
   options[:user] = ENV["SSH_USER"]
