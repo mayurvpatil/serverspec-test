@@ -4,12 +4,11 @@ require 'rubygems'
 require 'yaml'
 require 'highline/import'
 
-
-if not ENV["RESULT_PATH"]
-  raise 'Provide output location to store result  using env variable RESULT_PATH'
+output_path = "./reports"
+if ENV["RESULT_PATH"]
+  output_path = ENV["RESULT_PATH"]
 end
 
-output_path = ENV["RESULT_PATH"]
 host = ENV["SERVERSPEC_IP"]
 roles = ["base"]
 
