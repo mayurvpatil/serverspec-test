@@ -10,7 +10,7 @@ if not ENV["RESULT_PATH"]
 end
 
 output_path = ENV["RESULT_PATH"]
-host = ENV["SSH_HOST"]
+host = ENV["SERVERSPEC_IP"]
 roles = ["base"]
 
 desc "Run serverspec test on all provided hosts"

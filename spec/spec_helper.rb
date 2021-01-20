@@ -10,16 +10,16 @@ host = ENV['TARGET_HOST']
 options = Net::SSH::Config.for(host)
 
 #properties = YAML.load_file(ENV["HOSTS_FILE"])
-hosts = ENV["SSH_HOST"]
+hosts = ENV["SERVERSPEC_IP"]
 
-if ENV["SSH_USER"]
-  options[:user] = ENV["SSH_USER"]
+if ENV["SERVERSPEC_USER"]
+  options[:user] = ENV["SERVERSPEC_USER"]
 else
   raise 'Provide YAML file containing host details using env variable HOSTS_FILE'
 end
 
-if ENV['SSH_KEY']
-  options[:keys] = [ENV['SSH_KEY']]
+if ENV['SERVERSPEC_SSH_KEY']
+  options[:keys] = [ENV['SERVERSPEC_SSH_KEY']]
 elsif ENV['ASK_SSH_PASSWORD']
   begin
     require 'highline/import'
@@ -28,16 +28,16 @@ elsif ENV['ASK_SSH_PASSWORD']
   end
   options[:password] = ask("Enter password: ") { |q| q.echo = false }
   options[:auth_methods] =  %w(password)
-elsif ENV['SSH_PASSWORD']
-  options[:password] = ENV['SSH_PASSWORD']
+elsif ENV['SERVERSPEC_PASSWORD']
+  options[:password] = ENV['SERVERSPEC_PASSWORD']
   options[:auth_methods] =  %w(password)
 else
    raise 'No user password provided.'
 end
 
 #Custom SSH Port
-if ENV["SSH_PORT"]
-  options[:port] = ENV["SSH_PORT"]
+if ENV["SERVERSPEC_SSH_PORT"]
+  options[:port] = ENV["SERVERSPEC_SSH_PORT"]
 end
 
 set :host, options[:host_name] || host
