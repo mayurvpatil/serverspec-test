@@ -23,5 +23,6 @@ Update env.sh and execute `sh env.sh`
 1. Clone this repo
 2. Run `bundle install` to install all required gems.
 3. Run command<br>
-`cd serverspec-test && rake spec`
+`rake spec`
 4. Navigate to `RESULT_PATH` to see rspec reports in `html` and `json` format.
+  if not provided, default value is : `/reports`
